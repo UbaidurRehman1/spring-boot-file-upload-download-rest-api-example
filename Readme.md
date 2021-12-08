@@ -1,6 +1,4 @@
-## Spring Boot File Upload / Download Rest API Example
-
-**Tutorial**: [Uploading an Downloading files with Spring Boot](https://www.callicoder.com/spring-boot-file-upload-download-rest-api-example/)
+## Spring Boot File Upload
 
 ## Steps to Setup
 
@@ -25,4 +23,9 @@ cd spring-boot-file-upload-download-rest-api-example
 mvn spring-boot:run
 ```
 
-That's it! The application can be accessed at `http://localhost:8909`.
+## Uploading file
+
+1. trigger ngrok with your subdomain by `ngrok http -subdomain=${subdomain} 8909`
+2. cURL command to upload file: `curl --location --request POST 'http://${subdomain}.ngrok.io/uploadFile' --form 'file=@"path/to/file"'`
+3. You can download file by: `curl ${fileDownloadUri} -o ${fileName}` where we can get `fileDownloadUri` and `fileName` from #2 command response
+
